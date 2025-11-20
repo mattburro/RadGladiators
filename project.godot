@@ -11,5 +11,25 @@ config_version=5
 [application]
 
 config/name="Rad Gladiators"
+run/main_scene="uid://cjwp7mltp3lhc"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="uid://1wtq64a6akcr"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[global_group]
+
+characters=""
+
+[layer_names]
+
+3d_physics/layer_1="environment"
+3d_physics/layer_2="character"
+avoidance/layer_1="characters"
+
+[navigation]
+
+3d/default_cell_size=0.1
+3d/default_cell_height=0.01

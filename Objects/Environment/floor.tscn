@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch5mk83puypnb"]
+
+[ext_resource type="Texture2D" uid="uid://cdi5hst80lkuu" path="res://Models/Textures/colormap.png" id="1_0qoee"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8twlu"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_0qoee")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wsnd0"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e1kxo"]
+resource_name = "floor_floor"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"attribute_data": PackedByteArray(255, 247, 255, 223, 255, 247, 255, 223, 255, 247, 255, 223, 255, 247, 255, 223),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_8twlu"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wsnd0")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qoee"]
+size = Vector3(1, 0.05, 1)
+
+[node name="Floor" type="Node3D"]
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="floor" type="MeshInstance3D" parent="Model"]
+mesh = SubResource("ArrayMesh_e1kxo")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("BoxShape3D_0qoee")

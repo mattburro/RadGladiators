@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cv8clef50ne4y"]
 
-[ext_resource type="Script" uid="uid://dx3hgmwtthyv5" path="res://Scenes/Unit/unit.gd" id="1_hgpyh"]
+[ext_resource type="Script" uid="uid://dx3hgmwtthyv5" path="res://Scenes/Path Unit (old)/path_unit.gd" id="1_kdfsx"]
 
 [node name="Unit" type="Path3D"]
-script = ExtResource("1_hgpyh")
+script = ExtResource("1_kdfsx")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
 loop = false
